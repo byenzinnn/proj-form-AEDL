@@ -1,0 +1,59 @@
+/* App.css */
+
+@import url("https://use.typekit.net/few4xfr.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--main-font);
+  font-style: var(--main-font-style);
+  font-weight: var(--main-font-weight);
+  user-select: none;
+  background-color: #272727;
+}
+
+:root {
+  --main-font: artifex-hand-cf, sans-serif;
+  --main-font-style: normal;
+  --main-font-weight: 200;
+  --main-bg-color: #272727; /* Cor de fundo principal */
+  --main-text-color: #d9d9d9; /* Cor do texto principal */
+  --button-border-color: #fff; /* Cor da borda do botão */
+  --button-hover-bg-color: #727062; /* Cor de fundo do botão ao passar o mouse */
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--main-bg-color); /* Cor do fundo */
+  border-radius: 6px; /* Borda arredondada */
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--button-hover-bg-color); /* Cor da thumb */
+  border-radius: 0px;
+}
+
+.container {
+  width: 100%;
+  min-width: 320px;
+  height: 100dvh;
+  text-align: center;
+  display: grid;
+  background-color: #727062;
+}
+
+.inputQuestion {
+  border: none;
+}
+
+.inputQuestion:focus {
+  border: none;
+}
+
+img {
+  max-width: 200px;
+}
