@@ -3,8 +3,14 @@ import styled from "styled-components";
 import logo from "../assets/Logotipo Editável_Icone AEDL branco.png";
 
 const Logo = () => {
-  return <LogoImage src={logo} alt="Logotipo" />;
+  return (
+    <LogoImage
+      src={`${process.env.PUBLIC_URL}/assets/Logotipo Editável_Icone AEDL branco.png`}
+      alt="Logotipo"
+    />
+  );
 };
+
 
 const LogoImage = styled.img`
   width: 100%;
