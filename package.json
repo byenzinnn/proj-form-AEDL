@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://seu-usuario.github.io/nome-do-repositorio",
+  "homepage": "https://seu-usuario.github.io/proj-form-AEDL",
 
   "scripts": {
     "dev": "vite",
