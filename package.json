@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://byenzinnn.github.io/proj-form-AEDL",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -12,6 +11,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
+  "homepage": "https://byenzinnn.github.io/proj-form-AEDL",
   "dependencies": {
     "animejs": "^3.2.2",
     "react": "^18.3.1",
