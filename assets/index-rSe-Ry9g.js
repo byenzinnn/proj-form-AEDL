@@ -117,7 +117,7 @@ Error generating stack: `+l.message+`
   margin: 5px 0;
 `,wm="/proj-form-AEDL/assets/Logotipo%20Edita%CC%81vel_Icone%20AEDL%20branco-DgkKT3lJ.png",xm=()=>j.jsx(Sm,{src:wm,alt:"Logotipo"}),Sm=X.img`
   width: 100%;
-  max-width: 100px;
+  max-width: 150px;
   height: auto;
   margin: 20px 0;
 `,km=({next:o})=>{Se.useEffect(()=>{de.timeline().add({targets:".logo",opacity:[0,1],translateY:[40,0],duration:1600,easing:"easeInOutQuad"}).add({targets:".title",opacity:[0,1],translateY:[20,0],duration:1e3,easing:"easeOutExpo"},"-=500").add({targets:".start-button",opacity:[0,1],scale:[.9,1],duration:1e3,easing:"easeOutExpo"},"-=500")},[]);const u=()=>{de.timeline().add({targets:".title, .start-button",opacity:[1,0],duration:1e3,easing:"easeInOutQuad",complete:o})};return j.jsx(Em,{children:j.jsxs(Cm,{children:[j.jsx(_m,{className:"title",children:"Seja bem-vindo(a) à nossa Família de Voluntários!"}),j.jsx(Pm,{className:"start-button",onClick:u,children:"Vamos lá!"})]})})},Em=X.div`
