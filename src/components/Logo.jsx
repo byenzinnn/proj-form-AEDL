@@ -5,12 +5,11 @@ import logo from "../assets/Logotipo Editável_Icone AEDL branco.png";
 const Logo = () => {
   return (
     <LogoImage
-      src={`${process.env.PUBLIC_URL}/assets/Logotipo Editável_Icone AEDL branco.png`}
+      src={`${import.meta.env.BASE_URL}assets/Logotipo Editável_Icone AEDL branco.png`}
       alt="Logotipo"
     />
   );
 };
-
 
 const LogoImage = styled.img`
   width: 100%;
