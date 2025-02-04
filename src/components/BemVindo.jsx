@@ -1,49 +1,56 @@
-import React, { useEffect } from 'react';
-import styled from 'styled-components';
-import anime from 'animejs';
+import React, { useEffect } from "react";
+import styled from "styled-components";
+import anime from "animejs";
 
 const BemVindo = ({ next }) => {
   useEffect(() => {
-    anime.timeline()
+    anime
+      .timeline()
       .add({
-        targets: '.logo',
+        targets: ".logo",
         opacity: [0, 1],
         translateY: [40, 0],
         duration: 1600,
-        easing: 'easeInOutQuad',
+        easing: "easeInOutQuad",
       })
-      .add({
-        targets: '.title',
-        opacity: [0, 1],
-        translateY: [20, 0],
-        duration: 1000,
-        easing: 'easeOutExpo',
-      }, '-=500')
-      .add({
-        targets: '.start-button',
-        opacity: [0, 1],
-        scale: [0.9, 1],
-        duration: 1000,
-        easing: 'easeOutExpo',
-      }, '-=500');
+      .add(
+        {
+          targets: ".title",
+          opacity: [0, 1],
+          translateY: [20, 0],
+          duration: 1000,
+          easing: "easeOutExpo",
+        },
+        "-=500"
+      )
+      .add(
+        {
+          targets: ".start-button",
+          opacity: [0, 1],
+          scale: [0.9, 1],
+          duration: 1000,
+          easing: "easeOutExpo",
+        },
+        "-=500"
+      );
   }, []);
 
   const handleNext = () => {
-    anime.timeline()
-      .add({
-        targets: '.title, .start-button',
-        opacity: [1, 0],
-
-        duration: 1000,
-        easing: 'easeInOutQuad',
-        complete: next,
-      });
+    anime.timeline().add({
+      targets: ".title, .start-button",
+      opacity: [1, 0],
+      duration: 1000,
+      easing: "easeInOutQuad",
+      complete: next,
+    });
   };
 
   return (
     <Container>
       <ContentWrapper>
-        <Title className="title">Seja bem-vindo(a) à nossa Família de Voluntários!</Title>
+        <Title className="title">
+          Seja bem-vindo(a) à nossa Família de Voluntários!
+        </Title>
         <StyledButton className="start-button" onClick={handleNext}>
           Vamos lá!
         </StyledButton>

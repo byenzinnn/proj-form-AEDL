@@ -78,7 +78,7 @@ const NomeSobrenome = ({ next, update }) => {
       <InputContainer className="input-container">
         <Input
           type="text"
-          placeholder="Digite seu nome"
+          placeholder="Digite seu nome completo"
           value={nome}
           onChange={handleInputChange}
         />

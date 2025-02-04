@@ -10,6 +10,7 @@ import GeneroDataNascimento from "./components/GeneroDataNascimento";
 import RevisaoDados from "./components/RevisaoDados";
 import CadastroConcluido from "./components/CadastroConcluido";
 import Religiao from "./components/Religiao";
+import ConcordarComTermos from "./components/ConcordarComTermos";
 
 function App() {
   const [step, setStep] = useState(0);
@@ -22,6 +23,8 @@ function App() {
     estado: "",
     genero: "",
     dataNascimento: "",
+    religiao: "",
+    assinouTermos: false, // Adicionado aqui
   });
 
   const nextStep = () => setStep(step + 1);
@@ -54,13 +57,21 @@ function App() {
         )}
         {step === 5 && <Religiao next={nextStep} update={updateData} />}
         {step === 6 && (
+          <ConcordarComTermos
+            onConfirm={() => {
+              updateData({ assinouTermos: true });
+              nextStep();
+            }}
+          />
+        )}
+        {step === 7 && (
           <RevisaoDados
             formData={formData}
             update={updateData}
-            onSubmit={() => setStep(7)}
+            onSubmit={() => setStep(8)}
           />
         )}
-        {step === 7 && <CadastroConcluido />}
+        {step === 8 && <CadastroConcluido />}
       </ContentWrapper>
     </Container>
   );
@@ -73,6 +84,7 @@ const Container = styled.div`
   align-items: center;
   min-height: 100vh;
   background-color: var(--main-bg-color);
+  padding-top: 40px;
 `;
 
 const LogoWrapper = styled.div`

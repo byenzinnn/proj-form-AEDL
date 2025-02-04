@@ -63,54 +63,69 @@ const Contato = ({ next, update }) => {
       setErro("Por favor, preencha todos os campos antes de continuar.");
       return;
     }
-
+  
+    if (cpf.length < 11) {
+      setErro("O CPF deve conter 11 números.");
+      return;
+    }
+  
+    if (telefone.length < 10) {
+      setErro("O telefone deve conter pelo menos 10 números.");
+      return;
+    }
+  
     // Validação básica do e-mail
     if (!/\S+@\S+\.\S+/.test(email)) {
       setErro("Por favor, insira um e-mail válido.");
       return;
     }
-
+  
     // Envia os dados para o estado global
     update({ cpf, telefone, email });
-
+  
     // Animação de saída
     anime.timeline().add({
       targets: ".title, .input-container, .start-button",
       opacity: [1, 0],
-      translateY: [0, -30],
-      duration: 1000,
+      duration: 800,
       easing: "easeInOutQuad",
       complete: next,
     });
   };
+  
 
   return (
     <Container>
       <Title className="title">Informações de Contato</Title>
       <InputContainer className="input-container">
-        <Input
-          type="text"
-          placeholder="Digite seu CPF"
-          value={cpf}
-          onChange={(e) => {
-            setCpf(e.target.value);
-            setErro("");
-          }}
-        />
-        <FocusBorder />
-      </InputContainer>
-      <InputContainer className="input-container">
-        <Input
-          type="text"
-          placeholder="Digite seu telefone"
-          value={telefone}
-          onChange={(e) => {
-            setTelefone(e.target.value);
-            setErro("");
-          }}
-        />
-        <FocusBorder />
-      </InputContainer>
+  <Input
+    type="text"
+    placeholder="Digite seu CPF"
+    value={cpf}
+    maxLength={11} // Limita a 11 dígitos
+    onChange={(e) => {
+      const value = e.target.value.replace(/\D/g, ""); // Remove caracteres não numéricos
+      setCpf(value);
+      setErro("");
+    }}
+  />
+  <FocusBorder />
+</InputContainer>
+<InputContainer className="input-container">
+  <Input
+    type="text"
+    placeholder="Digite seu telefone com DDD"
+    value={telefone}
+    maxLength={11} // Limita a 11 dígitos (DDD + número)
+    onChange={(e) => {
+      const value = e.target.value.replace(/\D/g, ""); // Remove caracteres não numéricos
+      setTelefone(value);
+      setErro("");
+    }}
+  />
+  <FocusBorder />
+</InputContainer>
+
       <InputContainer className="input-container">
         <Input
           type="email"

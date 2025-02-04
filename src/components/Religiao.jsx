@@ -39,7 +39,7 @@ const Religiao = ({ next, update }) => {
     anime.timeline().add({
       targets: ".title, .input-container, .start-button",
       opacity: [1, 0],
-      translateY: [0, -30],
+      translateY: [0, 30],
       duration: 1000,
       easing: "easeInOutQuad",
       complete: next,
@@ -136,7 +136,7 @@ const StyledButton = styled.button`
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: var(--button-border-color);
+    background-color: var(--button-hover-bg-color);
   }
 `;
 

@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
 const CadastroConcluido = () => {
   return (
     <Container>
-      <Title>Cadastro Concluído!</Title>
+      <Title className="title">Cadastro Concluído!</Title>
       <Message>
         Obrigado por se cadastrar, nossa equipe entrará em contato em breve!
       </Message>

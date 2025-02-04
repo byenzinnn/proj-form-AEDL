@@ -50,10 +50,21 @@ const CidadeEstado = ({ next, update }) => {
 
     // Animação de saída
     anime.timeline().add({
-      targets: ".title, .input-container, .start-button",
+      targets: ".title",
       opacity: [1, 0],
-      translateY: [0, -30],
-      duration: 1000,
+      duration: 600,
+      easing: "easeInOutQuad",
+    })
+    .add({
+      targets: ".input-container",
+      opacity: [1, 0],
+      duration: 400,
+      easing: "easeInOutQuad",
+    })
+    .add({
+      targets: ".start-button",
+      opacity: [1, 0],
+      duration: 200,
       easing: "easeInOutQuad",
       complete: next,
     });
