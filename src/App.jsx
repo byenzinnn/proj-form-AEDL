@@ -57,13 +57,13 @@ function App() {
         )}
         {step === 5 && <Religiao next={nextStep} update={updateData} />}
         {step === 6 && (
-          <ConcordarComTermos
-            onConfirm={() => {
-              updateData({ assinouTermos: true });
-              nextStep();
-            }}
-          />
-        )}
+  <ConcordarComTermos
+    onConfirm={nextStep} // Passa a função correta para avançar
+    update={updateData} // Atualiza o estado global
+  />
+)}
+
+
         {step === 7 && (
           <RevisaoDados
             formData={formData}

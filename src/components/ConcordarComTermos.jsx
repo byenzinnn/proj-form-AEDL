@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import anime from "animejs";
 
 const ConcordarTermos = ({ onConfirm, update }) => {
   const [aceito, setAceito] = useState(false);
@@ -11,13 +12,23 @@ const ConcordarTermos = ({ onConfirm, update }) => {
       return;
     }
 
-    setErro("");
-    update({ assinouTermos: true }); // Atualiza o estado global indicando que os termos foram aceitos
-    onConfirm(); // Chama a próxima etapa
+    console.log("Usuário aceitou os termos."); 
+
+    anime.timeline().add({
+      targets: "#cont1", // Use a classe correta
+      opacity: [1, 0],
+      translateY: [0, -20],
+      duration: 800,
+      easing: "easeInOutQuad",
+      complete: () => {
+        update({ assinouTermos: true }); // Atualiza o estado global
+        onConfirm();
+      },
+    });
   };
 
   return (
-    <Container>
+    <Container id="cont1">
       <Title>Concorde com os Termos</Title>
       <TermsContainer>
         <Text>
@@ -25,7 +36,7 @@ const ConcordarTermos = ({ onConfirm, update }) => {
           link abaixo para acessar os termos:
           <br />
           <a
-            href="./assets/TERMO_VOLUNTARIADO.zip"
+            href="/assets/TERMO_VOLUNTARIADO.zip"
             target="_blank"
             rel="noopener noreferrer"
             download="TERMO_VOLUNTARIADO.zip"
@@ -39,7 +50,10 @@ const ConcordarTermos = ({ onConfirm, update }) => {
           type="checkbox"
           id="aceito"
           checked={aceito}
-          onChange={() => setAceito(!aceito)}
+          onChange={() => {
+            setAceito(!aceito);
+            setErro(""); // Limpa erro ao marcar
+          }}
         />
         <Label htmlFor="aceito">Eu li e concordo com os termos</Label>
       </CheckboxContainer>
@@ -49,7 +63,7 @@ const ConcordarTermos = ({ onConfirm, update }) => {
   );
 };
 
-// Estilização com styled-components
+// **Estilização com Styled-Components**
 const Container = styled.div`
   display: flex;
   flex-direction: column;
